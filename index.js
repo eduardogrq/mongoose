@@ -42,10 +42,24 @@ const Koder = mongoose.model('koders', KoderSchema)
 
  mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true })
     .then((conn) => {
-        console.log('DB Connection :D ', conn)
-        Koder.find({ name: "Mariana" })
-            .then((kodersFound) => {
-                console.log('Koders encontrados: ', kodersFound)
+        // Consulta de koders
+        // console.log('DB Connection :D ', conn)
+        // Koder.find({ name: "Mariana" })
+        //     .then((kodersFound) => {
+        //         console.log('Koders encontrados: ', kodersFound)
+        //     })
+        //     .catch((error) => {
+        //         console.log('error: ', error)
+        //     })
+
+        Koder.create({
+            name: 'Fabian',
+            lastName: 'Higareda',
+            age: 31,
+            gender: 'm'
+        })
+            .then((koderCreated) => {
+                console.log('koder creado: ', koderCreated)
             })
             .catch((error) => {
                 console.log('error: ', error)
